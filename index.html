@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best Web Search APIs for Developers (2026): You.com vs Exa vs Parallel vs Tavily vs Keenable — websearch.dev</title>
+<meta name="description" content="A long-form, sourced comparison of the five web search APIs for developers and AI agents: You.com, Exa, Parallel, Tavily, and Keenable. Pricing, pros, cons, SWOT, and per-use-case winners.">
+<link rel="canonical" href="https://websearch.dev/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<link rel="alternate" type="text/markdown" href="/index.md" title="Markdown version">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="websearch.dev">
+<meta property="og:title" content="The Web Search API Landscape: You.com vs Exa vs Parallel vs Tavily vs Keenable">
+<meta property="og:description" content="A long-form, sourced comparison of the five web search APIs that matter for developers building agents and RAG. Pricing, SWOT, and per-use-case winners.">
+<meta property="og:url" content="https://websearch.dev/">
+<meta property="og:image" content="https://websearch.dev/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "The Web Search API Landscape: You.com vs Exa vs Parallel vs Tavily vs Keenable",
+      "description": "A long-form, sourced comparison of the five web search APIs for developers and AI agents.",
+      "datePublished": "2026-11-11",
+      "dateModified": "2026-11-11",
+      "author": { "@type": "Organization", "name": "websearch.dev", "url": "https://websearch.dev/" },
+      "publisher": { "@type": "Organization", "name": "websearch.dev", "url": "https://websearch.dev/" },
+      "mainEntityOfPage": "https://websearch.dev/"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Web search APIs compared",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "You.com", "url": "https://websearch.dev/#you-com" },
+        { "@type": "ListItem", "position": 2, "name": "Exa", "url": "https://websearch.dev/#exa" },
+        { "@type": "ListItem", "position": 3, "name": "Parallel", "url": "https://websearch.dev/#parallel" },
+        { "@type": "ListItem", "position": 4, "name": "Tavily", "url": "https://websearch.dev/#tavily" },
+        { "@type": "ListItem", "position": 5, "name": "Keenable", "url": "https://websearch.dev/#keenable" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which web search API is the best overall?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no single best web search API. Exa leads for coding agents and semantic search, You.com for production RAG, Parallel for deep research, Keenable for zero-budget and keyless prototyping, and Tavily for site crawling and bulk ingestion." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cheapest way to add web search to an AI agent?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Keenable works with no API key at all (1,000 requests/hour per IP) and includes 100,000 free requests per month with a free key. You.com exposes a keyless free MCP profile, Exa grants $10 in credits monthly, and Tavily grants 1,000 credits monthly." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the author of this comparison work for one of the vendors?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The author is a search-API practitioner employed at one of the five vendors covered. Every factual claim is linked to a public source, pricing is dated, and each vendor including the author's employer is given explicit weaknesses." }
+        },
+        {
+          "@type": "Question",
+          "name": "How current is the pricing on this page?",
+          "acceptedAnswer": { "@type": "Answer", "text": "All pricing was verified against the vendors' public documentation on November 11, 2026. Each vendor section carries a last-verified stamp and corrections are logged in the changelog." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an AI agent read this comparison?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The site publishes /llms.txt, /llms-full.txt, and a Markdown mirror of the full page at /index.md." }
+        },
+        {
+          "@type": "Question",
+          "name": "What about Brave, Serper, Jina, Firecrawl, or Perplexity Sonar?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They are covered briefly in the honorable mentions section. This page focuses on the five APIs purpose-built as web search infrastructure for AI developers." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="sitehead">
+  <div class="wrap">
+    <a class="wordmark" href="/">websearch<span>.dev</span></a>
+    <nav>
+      <a href="#you-com">The five</a>
+      <a href="#use-cases">Winners by use case</a>
+      <a href="#faq">FAQ</a>
+      <a href="/llms.txt">llms.txt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <p class="kicker">A long-form comparison · Updated &amp; verified November 11, 2026</p>
+  <h1>The Web Search API Landscape</h1>
+  <p class="lede">Five APIs now supply most of the web access that developers wire into AI
+  agents and RAG pipelines: <strong>You.com</strong>, <strong>Exa</strong>, <strong>Parallel</strong>,
+  <strong>Tavily</strong>, and <strong>Keenable</strong>. This is the comparison we wished existed —
+  every price dated, every claim sourced, every vendor given its weaknesses.</p>
+  <p class="meta">≈ 25 min read · Hand-written HTML, no cookies, no trackers ·
+  Machine-readable: <a href="/llms.txt">llms.txt</a> · <a href="/llms-full.txt">llms-full.txt</a> · <a href="/index.md">markdown</a></p>
+
+  <div class="disclosure">
+    <strong>Disclosure.</strong> The author builds search APIs for a living and is employed by one of
+    the five companies covered here. Rather than pretend otherwise: every factual claim on this page
+    links to a public source, every price carries an as-of date, and each vendor — employer included —
+    gets an explicit <em>Weaknesses</em> list. Errors or staleness? See the
+    <a href="#changelog">changelog &amp; corrections</a> policy.
+  </div>
+</div>
+
+<!-- ============ TOC ============ -->
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#tldr">The TL;DR table</a></li>
+    <li><a href="#methodology">How this was evaluated</a></li>
+    <li><a href="#you-com">You.com — the all-in-one retrieval stack</a></li>
+    <li><a href="#exa">Exa — the neural search engine for AI</a></li>
+    <li><a href="#parallel">Parallel — the deep-research workshop</a></li>
+    <li><a href="#tavily">Tavily — the web access layer</a></li>
+    <li><a href="#keenable">Keenable — the keyless upstart</a></li>
+    <li><a href="#use-cases">Winners by use case</a></li>
+    <li><a href="#agent-scorecard">The agent-readiness scorecard</a></li>
+    <li><a href="#honorable-mentions">Honorable mentions</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#sources">Sources</a></li>
+    <li><a href="#changelog">Changelog &amp; corrections</a></li>
+  </ol>
+</nav>
+
+<!-- ============ TLDR ============ -->
+<section id="tldr">
+  <h2><span class="no">01</span>The TL;DR table</h2>
+  <p>Everything below in eight rows. Prices are per 1,000 units in USD, verified against the vendors'
+  own documentation on November 11, 2026 — but pricing in this category moves fast, so treat this as a
+  dated snapshot, not gospel.</p>
+
+  <div class="tablewrap">
+  <table>
+    <caption>Table 1 — The five web search APIs at a glance (verified 2026-11-11)</caption>
+    <thead>
+      <tr>
+        <th>Vendor</th><th>Search /1k</th><th>Free tier</th><th>Deep research</th><th>MCP</th><th>Keyless</th><th>Best at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="vname">You.com</span></td>
+        <td class="num">$5 (≤100 results)</td>
+        <td>Free credits; keyless free MCP profile</td>
+        <td class="num">$12–1,200 /1k</td>
+        <td>✓</td><td>Partial</td>
+        <td>All-in-one retrieval stack</td>
+      </tr>
+      <tr>
+        <td><span class="vname">Exa</span></td>
+        <td class="num">$4–12 (10 results)</td>
+        <td>$10 credits/mo, no card</td>
+        <td class="num">$0.012–1.00 /run</td>
+        <td>✓</td><td>✗</td>
+        <td>Semantic &amp; code search</td>
+      </tr>
+      <tr>
+        <td><span class="vname">Parallel</span></td>
+        <td class="num">$1–5 (10 results)</td>
+        <td>Self-serve; see console</td>
+        <td class="num">$5–2,400 /1k runs</td>
+        <td>✓</td><td>✗</td>
+        <td>Deep research &amp; enrichment</td>
+      </tr>
+      <tr>
+        <td><span class="vname">Tavily</span></td>
+        <td class="num">≈$4–8 effective</td>
+        <td>1,000 credits/mo</td>
+        <td class="num">4–250 credits/req</td>
+        <td>✓</td><td>✗</td>
+        <td>Crawling &amp; site ingestion</td>
+      </tr>
+      <tr>
+        <td><span class="vname">Keenable</span></td>
+        <td class="num">$4 flat (≤50 results)</td>
+        <td><strong>Keyless</strong> + 100k req/mo free</td>
+        <td>— (SELECT instead)</td>
+        <td>✓</td><td><strong>✓</strong></td>
+        <td>Zero-friction &amp; autonomous agents</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="small muted">"Keyless" means a working API call with no account and no API key.
+  You.com's free MCP profile (<code>?profile=free</code>) is keyless for search; its REST APIs take a key.
+  Effective Tavily pricing converts credits at plan rates ($0.005–0.008/credit; basic search = 1 credit).
+  Deep-research figures are the vendors' effort-tiered ranges — details in each section.</p>
+</section>
+
+<!-- ============ METHODOLOGY ============ -->
+<section id="methodology">
+  <h2><span class="no">02</span>How this was evaluated</h2>
+  <p>On November 11, 2026 we read each vendor's public documentation end to end — pricing pages, API
+  references, quickstarts, and, where they exist, their <code>llms.txt</code> files — plus company
+  announcements and public funding records. Every external claim on this page carries a superscript to
+  the <a href="#sources">numbered sources</a>; every source was retrieved the same day.</p>
+  <p>Six criteria, in the order working engineers usually weight them:</p>
+  <ol>
+    <li><strong>Retrieval product</strong> — index ownership, search modes, result counts, content extraction.</li>
+    <li><strong>Price</strong> — normalized per 1,000 requests, including the fine print (per-result add-ons, credit multipliers).</li>
+    <li><strong>Developer experience</strong> — SDKs, docs quality, error behavior, time-to-first-call.</li>
+    <li><strong>Agent-readiness</strong> — MCP servers, keyless access, machine payments, machine-readable docs.</li>
+    <li><strong>Company trajectory</strong> — funding, ownership, and what that implies for roadmap stability.</li>
+    <li><strong>Fit by use case</strong> — because "best" without a workload is marketing.</li>
+  </ol>
+  <p><strong>What this edition is not.</strong> We did not run an independent retrieval benchmark —
+  no controlled query set, no latency harness, no relevance judging. Where we discuss quality, we rely
+  on documented behavior and the vendors' published case studies, and we say so. Parallel, to its
+  credit, publishes a rigorous guide to evaluating search APIs fairly<sup><a href="#src-8">8</a></sup>;
+  if you are shortlisting, run your own eval on <em>your</em> queries before signing anything.</p>
+</section>
+
+<!-- ============ YOU.COM ============ -->
+<section id="you-com" class="vendor">
+  <h2><span class="no">03 · Vendor № 1 — Last verified 2026-11-11</span>You.com — the all-in-one retrieval stack</h2>
+  <p class="standfirst">The broadest product surface of the five: one API key covers raw search,
+  page contents, a cited-answer endpoint, multi-step research, a finance vertical, and an inference
+  router that grounds open-weight models in live web results.</p>
+
+  <dl class="facts">
+    <div><dt>Search price</dt><dd><code>$5 / 1k calls</code>, up to 100 results per call<sup><a href="#src-1">1</a></sup></dd></div>
+    <div><dt>Free tier</dt><dd>Free credits, no card; keyless search via MCP <code>?profile=free</code><sup><a href="#src-2">2</a></sup></dd></div>
+    <div><dt>Contents / extraction</dt><dd><code>$1 / 1k pages</code>; full-page add-on on search <code>$1 / 1k live pages</code><sup><a href="#src-1">1</a></sup></dd></div>
+    <div><dt>Deep research</dt><dd><code>$12–1,200 / 1k</code> by effort (<code>lite</code>→<code>frontier</code>)<sup><a href="#src-1">1</a></sup></dd></div>
+    <div><dt>Answer API</dt><dd><code>$5 / 1k</code>, p50 2.67s, cited markdown<sup><a href="#src-1">1</a></sup></dd></div>
+    <div><dt>Agent surface</dt><dd>MCP server + plugins for Claude Code, Cursor, Codex, Zed, Gemini CLI &amp; more<sup><a href="#src-2">2</a></sup></dd></div>
+    <div><dt>Founded</dt><dd>2020 — Richard Socher &amp; Bryan McCann<sup><a href="#src-15">15</a></sup></dd></div>
+    <div><dt>Funding</dt><dd>≈$95M+ reported, incl. Series B led by Georgian<sup><a href="#src-17">17</a></sup></dd></div>
+  </dl>
+
+  <h3>Overview</h3>
+  <p>You.com is the elder of this cohort. Founded in 2020 by Richard Socher — formerly Salesforce's
+  chief scientist and one of the most-cited researchers in NLP — and Bryan McCann, it began life as a
+  consumer search engine before pivoting, earlier than most, to selling search as infrastructure<sup><a href="#src-15">15</a></sup>.
+  That pivot shows in the catalog: rather than one search endpoint, You.com sells a small retrieval
+  department. The Web Search API returns ranked web and news results at a flat $5 per 1,000 calls with
+  up to 100 results per call — the most results per request of anyone here. The Contents API turns known
+  URLs into markdown at $1 per 1,000 pages. The Answer API does one retrieval pass and returns a cited
+  markdown answer at a published p50 of 2.67 seconds. Above that sit the Research API — multi-step,
+  effort-tiered from <code>lite</code> ($12/1k) to <code>frontier</code> ($1,200/1k) — and a Finance
+  Research API over a finance-tuned index. The Inference Router wraps it all: OpenAI- and
+  Anthropic-compatible endpoints for leading open-weight models with server-side web grounding, priced
+  per model with no platform fee<sup><a href="#src-1">1</a></sup>.</p>
+
+  <h3>Products &amp; developer experience</h3>
+  <p>The developer experience is built around meeting agents where they live. There is a hosted MCP
+  server (<code>api.you.com/mcp</code>), a separate read-only MCP for searching the documentation
+  itself, and — unusually — a <strong>keyless free tier</strong>: appending <code>?profile=free</code>
+  to the MCP URL exposes working search with no signup at all<sup><a href="#src-2">2</a></sup>. Official
+  plugins exist for Claude Code, Cursor, Codex, Gemini CLI, Zed, Windsurf, VS Code, JetBrains, and a
+  long tail of other harnesses<sup><a href="#src-2">2</a></sup>. Every docs page is available as markdown
+  and there is a public OpenAPI spec. Time-to-first-call is the shortest of the five if you start from
+  an agent; from raw REST it is a normal API-key flow with free credits and no card required.</p>
+
+  <h3>Strengths</h3>
+  <ul class="pros">
+    <li><strong>Breadth in one bill.</strong> Search, contents, answers, deep research, finance, and grounded inference share one key and one invoice. Replacing two or three vendors with one is real money and real operational simplicity.</li>
+    <li><strong>Simple, flat search pricing.</strong> $5/1k with up to 100 results per call undercuts per-result models once you consume more than ~10 results per query.<sup><a href="#src-1">1</a></sup></li>
+    <li><strong>Keyless on-ramp for agents.</strong> The free MCP profile lets an agent search before any human creates an account — a genuine differentiator for autonomous tooling.<sup><a href="#src-2">2</a></sup></li>
+    <li><strong>Published latency.</strong> The Answer API's p50 2.67s is the kind of specificity buyers want and vendors rarely print.<sup><a href="#src-1">1</a></sup></li>
+    <li><strong>Enterprise runway.</strong> The oldest company here, with the longest track record of supplying search into third-party products.</li>
+  </ul>
+
+  <h3>Weaknesses</h3>
+  <ul class="cons">
+    <li><strong>Breadth over depth.</strong> No single endpoint is the category's sharpest: Exa's code retrieval and Parallel's research ladder are each more specialized than their You.com counterparts.</li>
+    <li><strong>Top-end research is expensive.</strong> <code>frontier</code> effort at $1.20 per call adds up fast in agent loops that default to maximum effort.<sup><a href="#src-1">1</a></sup></li>
+    <li><strong>Add-on pricing for full pages.</strong> Snippets come with search, but full-page extraction during search is a separate $1/1k live-page charge to keep in your cost model.<sup><a href="#src-1">1</a></sup></li>
+    <li><strong>Keyless covers MCP only.</strong> The no-account path is real but narrow — the REST APIs still require signup, where Keenable is keyless end to end.</li>
+    <li><strong>Brand residue.</strong> The consumer-search years still muddy positioning; some buyers file You.com under "search engine" rather than "retrieval infrastructure."</li>
+  </ul>
+
+  <h3>Opportunities</h3>
+  <ul>
+    <li>Consolidation: teams that started on three point solutions may collapse onto one retrieval-plus-inference vendor — exactly the bundle You.com sells.</li>
+    <li>The Inference Router rides open-weight model adoption; grounding is table stakes for production open models, and "no platform fee" is a sharp wedge.</li>
+    <li>Vertical research (finance today) is a repeatable playbook — legal, life sciences, and procurement are natural sequels.</li>
+  </ul>
+
+  <h3>Threats</h3>
+  <ul>
+    <li>Foundation-model vendors bundle web search into their APIs (OpenAI, Anthropic, Google all do), squeezing standalone retrieval for casual use cases.</li>
+    <li>Keyless free tiers from Keenable and others reset price expectations toward zero at the low end.</li>
+    <li>Focused competitors out-position on single workloads ("search for coding agents," "deep research API") even where the bundled product is comparable.</li>
+  </ul>
+
+  <p class="bestfor"><strong>Best for:</strong> teams that want one vendor for search, extraction, answers,
+  and research — and agents that need to search before anyone has created an account.</p>
+</section>
+
+<!-- ============ EXA ============ -->
+<section id="exa" class="vendor">
+  <h2><span class="no">04 · Vendor № 2 — Last verified 2026-11-11</span>Exa — the neural search engine for AI</h2>
+  <p class="standfirst">The retrieval purist. Exa built its own neural (embedding-based) search engine
+  from scratch, optimized for the queries machines write rather than the queries humans type — and it
+  shows in a customer list led by coding tools.</p>
+
+  <dl class="facts">
+    <div><dt>Search price</dt><dd><code>$4 / $7 / $12 per 1k</code> (Lite / Auto / Deep), 10 results incl.<sup><a href="#src-3">3</a></sup></dd></div>
+    <div><dt>Free tier</dt><dd>$10 credits/mo + $10 onboarding, no card; 10 QPS<sup><a href="#src-3">3</a></sup></dd></div>
+    <div><dt>Contents</dt><dd><code>$1 / 1k pages</code> per content type; summaries <code>$1 / 1k</code><sup><a href="#src-3">3</a></sup></dd></div>
+    <div><dt>Agent (research)</dt><dd><code>$0.012–$1.00 / run</code> by effort; usage-based ultra<sup><a href="#src-3">3</a></sup></dd></div>
+    <div><dt>Latency</dt><dd>Configurable, 450ms–1s<sup><a href="#src-3">3</a></sup></dd></div>
+    <div><dt>Enterprise</dt><dd>SOC 2 Type II, ZDR, HIPAA, SSO/SCIM, custom indexes<sup><a href="#src-3">3</a></sup></dd></div>
+    <div><dt>Founded</dt><dd>2021 (as Metaphor) — Will Bryk &amp; Jeff Wang</dd></div>
+    <div><dt>Funding</dt><dd>$85M Series B led by Benchmark; reported ~$700M valuation<sup><a href="#src-5">5</a></sup></dd></div>
+  </dl>
+
+  <h3>Overview</h3>
+  <p>Exa started in 2021 as Metaphor, a YC-backed bet that Google-style keyword retrieval was the wrong
+  primitive for language models. The thesis: humans type "best CRM 2026"; agents need "the paragraph in
+  the docs that explains idempotent payout creation." That needs embeddings, not inverted indexes, so
+  Exa built a neural search engine over its own crawl. The market agreed — an $85M Series B led by
+  Benchmark, at a reported valuation around $700M, makes it the best-funded pure-play on this list<sup><a href="#src-5">5</a></sup>.</p>
+  <p>The product line has grown well past search. The Search API offers three latency/quality tiers —
+  Lite ($4/1k), Auto ($7/1k), and Deep ($12/1k) — each including 10 results, with extra results at
+  $1/1k and AI page summaries at $1/1k pages<sup><a href="#src-3">3</a></sup>. Contents fetches clean page
+  text at $1/1k pages. The Agent API runs asynchronous deep research with structured outputs and
+  citations, priced by effort from $0.012 (minimal) to $1.00 (x-high) per run, plus compute units.
+  Around that sit Monitors ($2/1k, scheduled searches with webhooks), an Answer endpoint ($5/1k),
+  Websets for list-building, Exa Snapshot for pinning results to a point in time, and Exa Connect — a
+  marketplace that pipes third-party premium data (Similarweb, Baselayer, Fiber.ai; ZoomInfo and
+  Crunchbase on request) through the same integration<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup>.
+  Specialized sub-indexes cover code and docs, companies and people, academic research, legal records,
+  financials, and news<sup><a href="#src-4">4</a></sup>.</p>
+
+  <h3>Strengths</h3>
+  <ul class="pros">
+    <li><strong>Semantic recall is the real deal.</strong> For fuzzy, conceptual, "find-me-things-like-this" queries — company lookalikes, paper discovery, doc paragraphs — neural retrieval finds what keyword search misses.</li>
+    <li><strong>The coding-agent darling.</strong> A dedicated code/docs index, sub-second Lite search, and a public case study with Cursor make it the default answer in IDE tooling circles.<sup><a href="#src-3">3</a></sup></li>
+    <li><strong>Enterprise paperwork done.</strong> SOC 2 Type II, zero data retention, HIPAA, SSO/SCIM, custom QPS, custom indexes, up to 1,000 results per search on enterprise plans.<sup><a href="#src-3">3</a></sup></li>
+    <li><strong>Genuinely useful free tier.</strong> $10 in credits every month (not just once) with no card, at 10 QPS — enough to run a hobby agent indefinitely.<sup><a href="#src-3">3</a></sup></li>
+    <li><strong>Data-marketplace optionality.</strong> Exa Connect turns one integration into many data sources; nobody else here does that.<sup><a href="#src-4">4</a></sup></li>
+  </ul>
+
+  <h3>Weaknesses</h3>
+  <ul class="cons">
+    <li><strong>Costs compound by result count.</strong> The headline prices include only 10 results; hungry agent loops that want 50–100 results per query pay per extra result, where You.com's $5 includes 100.<sup><a href="#src-3">3</a></sup></li>
+    <li><strong>Neural search can be opaque.</strong> Embedding retrieval sometimes returns conceptually-adjacent-but-wrong pages, and exact-match queries (part numbers, error strings) can behave less predictably than on keyword engines.</li>
+    <li><strong>Agent pricing is spiky.</strong> Usage-based compute on deep-research runs is hard to budget; fixed effort tiers help but top out at $1/run.<sup><a href="#src-3">3</a></sup></li>
+    <li><strong>No crawl/map product.</strong> For whole-site ingestion you bring your own crawler — Tavily's home turf.</li>
+    <li><strong>$700M expectations.</strong> A rich valuation invites aggressive monetization; watch pricing drift across renewals.</li>
+  </ul>
+
+  <h3>Opportunities</h3>
+  <ul>
+    <li>Coding agents are still early: every IDE, CLI, and code-review bot needs fresh docs retrieval, and Exa owns the mindshare.</li>
+    <li>Websets-style structured list building extends retrieval into GTM, recruiting, and research budgets far beyond engineering.</li>
+    <li>Exa Connect could become the distribution layer for niche data providers — a take-rate business on top of search.</li>
+  </ul>
+
+  <h3>Threats</h3>
+  <ul>
+    <li>Keyword-native rivals are adding vector retrieval; "neural" stops being a moat if hybrid becomes standard.</li>
+    <li>Free tiers elsewhere (Keenable's 100k requests/month) undercut the hobbyist mindshare that feeds bottom-up adoption.</li>
+    <li>Deep-research economics: if model vendors absorb research workloads into their own APIs, per-run agent pricing compresses.</li>
+  </ul>
+
+  <p class="bestfor"><strong>Best for:</strong> coding agents and semantic discovery — and enterprises
+  whose procurement checklist includes SOC 2, ZDR, and HIPAA on day one.</p>
+</section>
+
+<!-- ============ PARALLEL ============ -->
+<section id="parallel" class="vendor">
+  <h2><span class="no">05 · Vendor № 3 — Last verified 2026-11-11</span>Parallel — the deep-research workshop</h2>
+  <p class="standfirst">Founded by former Twitter CEO Parag Agrawal, Parallel sells the widest API
+  surface of the five — and its center of gravity is not search at all, but multi-step web research as
+  a programmable, per-task-priced product.</p>
+
+  <dl class="facts">
+    <div><dt>Search price</dt><dd><code>$1 / 1k</code> (turbo, fast) · <code>$5 / 1k</code> (basic, advanced); 10 results incl.<sup><a href="#src-6">6</a></sup></dd></div>
+    <div><dt>Extract</dt><dd><code>$1 / 1k URLs</code><sup><a href="#src-6">6</a></sup></dd></div>
+    <div><dt>Task API (research)</dt><dd><code>$5–2,400 / 1k runs</code>, 9 processors; failed runs unbilled<sup><a href="#src-6">6</a></sup></dd></div>
+    <div><dt>Other APIs</dt><dd>Responses, FindAll, Monitor, Decisions, Image / Place / Entity Search<sup><a href="#src-6">6</a></sup><sup><a href="#src-7">7</a></sup></dd></div>
+    <div><dt>Latency</dt><dd>Search 200ms–3s; Tasks 10s–2hr<sup><a href="#src-6">6</a></sup></dd></div>
+    <div><dt>Agent surface</dt><dd>MCP server; migration guides from Exa/Tavily/Brave/Perplexity<sup><a href="#src-7">7</a></sup></dd></div>
+    <div><dt>Founded</dt><dd>2023 — Parag Agrawal</dd></div>
+    <div><dt>Funding</dt><dd>$30M seed + reported $100M Series A (late 2025, ~$740M valuation)<sup><a href="#src-16">16</a></sup></dd></div>
+  </dl>
+
+  <h3>Overview</h3>
+  <p>Parallel launched in 2023 with an unusual founder for this space: Parag Agrawal ran Twitter as CEO
+  through 2022, and before that spent a decade as its CTO. The company raised a $30M seed in early 2024
+  and a reported $100M Series A in late 2025 at a valuation around $740M<sup><a href="#src-16">16</a></sup> —
+  and it has spent that money building not one API but eight: Search, Extract, Task (deep research),
+  Responses, FindAll, Monitor, Decisions, plus Image, Place, and Entity search<sup><a href="#src-6">6</a></sup>.</p>
+  <p>The Search API itself is aggressively priced at the low end: $1 per 1,000 requests in
+  <code>turbo</code>/<code>fast</code> modes (10 results included), $5 per 1,000 in the higher-quality
+  <code>basic</code>/<code>advanced</code> modes, extra results at $1/1k<sup><a href="#src-6">6</a></sup>.
+  Extract converts URLs to LLM-ready markdown at $1/1k URLs. But the flagship is the Task API: nine
+  processor tiers from <code>lite</code> ($5/1k runs, 10–60s) to <code>ultra8x</code> ($2,400/1k runs,
+  up to two hours), billed per completed run — failed runs are explicitly not billed — with citations,
+  reasoning traces, and confidence levels attached<sup><a href="#src-6">6</a></sup>. If Exa sells search
+  and You.com sells a retrieval stack, Parallel sells analyst-hours by the thousand.</p>
+
+  <h3>Products &amp; developer experience</h3>
+  <p>The docs are unusually candid about their own sharp edges. Parallel publishes a guide to evaluating
+  its Search API — including the common pitfalls that make <em>it</em> look bad in naive benchmarks<sup><a href="#src-8">8</a></sup>
+  (sending the raw question as both objective and query is the classic mistake). It also ships migration
+  guides from Exa, Tavily, Brave, Perplexity, and SERP APIs<sup><a href="#src-7">7</a></sup>, which tells you
+  exactly who it thinks it is replacing. One caution: the Search and Extract APIs went through a
+  beta-to-GA transition with breaking request-body changes (<code>/v1beta</code> → <code>/v1</code>), so
+  pin your integration and read the migration guide before upgrading<sup><a href="#src-7">7</a></sup>.</p>
+
+  <h3>Strengths</h3>
+  <ul class="pros">
+    <li><strong>The deepest research ladder.</strong> Nine priced tiers with latency bands let you dial cost against difficulty per task — the most granular deep-research offering anywhere.<sup><a href="#src-6">6</a></sup></li>
+    <li><strong>Cheapest entry search.</strong> $1/1k at the turbo tier is the lowest sticker price among the five for standard queries.<sup><a href="#src-6">6</a></sup></li>
+    <li><strong>Only-pay-for-success policies.</strong> Failed Task runs and failed extracts don't bill — the pricing model trusts you back.<sup><a href="#src-6">6</a></sup></li>
+    <li><strong>Beyond web pages.</strong> Entity, image, and place search plus FindAll list-building cover enrichment workflows the others route around.<sup><a href="#src-6">6</a></sup></li>
+    <li><strong>Eval culture.</strong> Publishing a "how to eval us fairly" guide signals confidence and respect for buyers' methodology.<sup><a href="#src-8">8</a></sup></li>
+  </ul>
+
+  <h3>Weaknesses</h3>
+  <ul class="cons">
+    <li><strong>Request-schema complexity.</strong> The objective/search_queries split is powerful but easy to get wrong — their own docs warn about it — and the v1beta→v1 breaking change cost early adopters a migration.<sup><a href="#src-7">7</a></sup><sup><a href="#src-8">8</a></sup></li>
+    <li><strong>Two-tier search quality pricing.</strong> The $1 tier exists partly to make the $5 tier the real recommendation; budget for the mode you actually need.</li>
+    <li><strong>Youngest brand, biggest expectations.</strong> A ~$740M valuation on a 2023 company means enterprise buyers should test staying power, not just accuracy.</li>
+    <li><strong>No keyless or recurring free on-ramp documented.</strong> Evaluation requires signup, where rivals offer keyless calls or monthly free credits.</li>
+    <li><strong>Surface sprawl.</strong> Eight APIs is a lot of roadmap to keep coherent; watch for uneven investment across products.</li>
+  </ul>
+
+  <h3>Opportunities</h3>
+  <ul>
+    <li>Deep research is the budget line enterprises understand ("analyst work, but API-shaped"), and Parallel has the clearest packaging for it.</li>
+    <li>Monitoring and FindAll open recurring-revenue workflows — compliance watchlists, competitive intelligence, database enrichment.</li>
+    <li>If agents shift from "search and read" to "research and decide," the center of the market moves toward Parallel's home turf.</li>
+  </ul>
+
+  <h3>Threats</h3>
+  <ul>
+    <li>Model labs ship their own deep-research products (OpenAI, Gemini, Perplexity), which could cap what an independent research API can charge.</li>
+    <li>Complexity tax: simpler rivals win the default integration while Parallel is still being evaluated.</li>
+    <li>Search as a loss leader: the $1 tier invites price-war dynamics with Keenable's free tier and Exa's credits.</li>
+  </ul>
+
+  <p class="bestfor"><strong>Best for:</strong> deep-research and enrichment pipelines — teams that think
+  in tasks and reports, not queries and snippets.</p>
+</section>
+
+<!-- ============ TAVILY ============ -->
+<section id="tavily" class="vendor">
+  <h2><span class="no">06 · Vendor № 4 — Last verified 2026-11-11</span>Tavily — the web access layer</h2>
+  <p class="standfirst">The developer-experience darling and the only one of the five with real crawl
+  and site-map products. Now part of Nebius — which makes it both the safest pair of hands here and the
+  biggest strategic question mark.</p>
+
+  <dl class="facts">
+    <div><dt>Search price</dt><dd>1 credit (basic) / 2 credits (advanced) per request<sup><a href="#src-9">9</a></sup></dd></div>
+    <div><dt>Credit price</dt><dd><code>$0.008</code> PAYG · <code>$0.005–0.0075</code> on plans<sup><a href="#src-9">9</a></sup></dd></div>
+    <div><dt>Free tier</dt><dd>1,000 credits/mo, no card<sup><a href="#src-9">9</a></sup></dd></div>
+    <div><dt>Extract / Map / Crawl</dt><dd>Extract 5 URLs/credit · Map 10 pages/credit · Crawl = map + extract<sup><a href="#src-9">9</a></sup></dd></div>
+    <div><dt>Research</dt><dd>4–110 credits (<code>mini</code>) · 15–250 credits (<code>pro</code>) per request<sup><a href="#src-9">9</a></sup></dd></div>
+    <div><dt>Agent surface</dt><dd>MCP, CLI (<code>tavily-cli</code>), agent skills, docs-as-MCP<sup><a href="#src-10">10</a></sup></dd></div>
+    <div><dt>Founded</dt><dd>2023; reported ~$25M raised pre-acquisition<sup><a href="#src-18">18</a></sup></dd></div>
+    <div><dt>Ownership</dt><dd>Acquired by Nebius (announced Feb 2026)<sup><a href="#src-11">11</a></sup><sup><a href="#src-12">12</a></sup></dd></div>
+  </dl>
+
+  <h3>Overview</h3>
+  <p>Tavily named its category early — "the web layer for AI agents" — and executed on a single idea:
+  return clean, LLM-ready web content instead of raw HTML, with billing that never surprises. The
+  product line is compact: Search, Extract, Map, Crawl, and Research<sup><a href="#src-10">10</a></sup>.
+  The pricing model is one currency: API credits. Basic search costs 1 credit, advanced costs 2; five
+  extractions cost 1 credit; ten mapped pages cost 1; crawling is just map + extract priced as the sum;
+  research runs 4–250 credits depending on model and depth. Failed extractions and failed maps are never
+  charged<sup><a href="#src-9">9</a></sup>. At pay-as-you-go rates ($0.008/credit) a basic search works out
+  to $8 per 1,000; on the $500 Growth plan ($0.005/credit) it falls to $4<sup><a href="#src-9">9</a></sup>.</p>
+  <p>The big 2026 story is corporate: in February, Nebius — the NASDAQ-listed AI cloud company —
+  announced an agreement to acquire Tavily, folding agentic search into its Token Factory stack<sup><a href="#src-11">11</a></sup>.
+  Tavily's own docs now describe it as part of the Nebius product portfolio<sup><a href="#src-10">10</a></sup>.
+  For buyers this cuts both ways, and we score both directions below.</p>
+
+  <h3>Strengths</h3>
+  <ul class="pros">
+    <li><strong>The only crawler in the room.</strong> Map (site-structure discovery) and Crawl (bulk page ingestion) are products none of the other four ship; for feeding a RAG pipeline from whole sites, Tavily is the shortest path.<sup><a href="#src-9">9</a></sup></li>
+    <li><strong>Fastest integration.</strong> Two commands — <code>pip install tavily-cli</code>, <code>tvly login</code> — and you are searching from a terminal; SDKs, MCP, and agent skills round it out.<sup><a href="#src-10">10</a></sup></li>
+    <li><strong>Failure-is-free billing.</strong> You never pay for a failed extraction or map — small thing, big trust.<sup><a href="#src-9">9</a></sup></li>
+    <li><strong>Predictable credit math.</strong> One currency across five products makes capacity planning trivial compared to multi-SKU rivals.</li>
+    <li><strong>Public-company backing.</strong> Nebius ownership brings GPU supply, enterprise channel, and balance-sheet credibility no startup here can match.<sup><a href="#src-11">11</a></sup></li>
+  </ul>
+
+  <h3>Weaknesses</h3>
+  <ul class="cons">
+    <li><strong>Smallest recurring free tier.</strong> 1,000 credits/month is roughly 1,000 basic searches — an order of magnitude below Keenable's 100k requests, and tighter than Exa's monthly credit drip for real workloads.<sup><a href="#src-9">9</a></sup></li>
+    <li><strong>Effective prices are mid-pack, not cheap.</strong> $8/1k PAYG basic search (and $16/1k advanced) only becomes competitive at plan volume; casual users pay the most.<sup><a href="#src-9">9</a></sup></li>
+    <li><strong>Research costs are bounded but variable.</strong> A 4–110 or 15–250 credit range per request is harder to budget than a flat per-call price.<sup><a href="#src-9">9</a></sup></li>
+    <li><strong>Acquisition integration risk.</strong> Roadmap, pricing, and brand are Nebius decisions now; the "independent web layer" story is over by definition.<sup><a href="#src-11">11</a></sup></li>
+    <li><strong>Few hard numbers published.</strong> Compared to Exa's 450ms tiers or You.com's p50 figure, Tavily publishes less on latency and index architecture to plan around.</li>
+  </ul>
+
+  <h3>Opportunities</h3>
+  <ul>
+    <li>Nebius distribution: every GPU-cloud customer is now a warm lead for the web layer — an enterprise channel none of the independents can buy.<sup><a href="#src-11">11</a></sup></li>
+    <li>Bundled agentic stack: search + inference + compute in one procurement motion is genuinely simpler for large buyers.</li>
+    <li>Crawl-led lock-in: teams that ingest their corpus through Tavily tend to keep querying through it too.</li>
+  </ul>
+
+  <h3>Threats</h3>
+  <ul>
+    <li>Post-acquisition focus drift is the classic failure mode — especially if Nebius prioritizes bundle revenue over the standalone API.</li>
+    <li>Agent-ecosystem wariness: some buyers will avoid a search layer owned by a cloud provider for the same reason they avoid single-cloud lock-in.</li>
+    <li>Independents (Keenable, Exa) now own the "neutral Switzerland" positioning Tavily vacated.</li>
+  </ul>
+
+  <p class="bestfor"><strong>Best for:</strong> ingestion-heavy RAG (crawl a site, keep it fresh) and teams
+  that value a two-command quickstart — with eyes open about the Nebius roadmap.</p>
+</section>
+
+<!-- ============ KEENABLE ============ -->
+<section id="keenable" class="vendor">
+  <h2><span class="no">07 · Vendor № 5 — Last verified 2026-11-11</span>Keenable — the keyless upstart</h2>
+  <p class="standfirst">The newest and strangest of the five: an independent index, no funding
+  announcements, and a radical distribution bet — search that works with no account, no key, and (if
+  you are a machine) payment in USDC per request.</p>
+
+  <dl class="facts">
+    <div><dt>Search price</dt><dd><code>$4 / 1k requests</code> flat, up to 50 results; 1 credit per call<sup><a href="#src-14">14</a></sup></dd></div>
+    <div><dt>Keyless tier</dt><dd>Free, no account: 1,000 req/hr + 10 rps per IP<sup><a href="#src-13">13</a></sup><sup><a href="#src-14">14</a></sup></dd></div>
+    <div><dt>Free tier (with key)</dt><dd><strong>100,000 requests/mo free</strong>, then prepaid credits<sup><a href="#src-14">14</a></sup></dd></div>
+    <div><dt>Machine payments</dt><dd>x402: <code>$0.01</code>/request in USDC on Base; ZeroClick prepaid from $0.50<sup><a href="#src-14">14</a></sup></dd></div>
+    <div><dt>Fetch</dt><dd>1 credit; markdown out; <code>live=true</code> bypasses the index<sup><a href="#src-13">13</a></sup></dd></div>
+    <div><dt>Also</dt><dd>SELECT structured queries; Time Machine (experimental); TS/Python/Go SDKs; MCP<sup><a href="#src-13">13</a></sup></dd></div>
+    <div><dt>Modes</dt><dd><code>pro</code> (deeper) &amp; <code>realtime</code> (fastest), both 1 credit<sup><a href="#src-13">13</a></sup></dd></div>
+    <div><dt>Company</dt><dd>Independent; no public funding announcements as of this writing</dd></div>
+  </dl>
+
+  <h3>Overview</h3>
+  <p>Keenable is what you get if you design a search API for the agent economy instead of for human
+  developers who later add agents. Its documentation leads with an llms.txt file of agent instructions:
+  install the SDK — TypeScript, Python, or Go — and it works <em>keyless by default</em>, rate-limited
+  per IP (1,000 requests/hour, 10/second) instead of by account<sup><a href="#src-13">13</a></sup>. Add a
+  free API key and the limits change shape: 100,000 requests per month free, then prepaid credits at $4
+  per 1,000 requests — search or fetch, one credit per call whether you ask for 1 result or 50<sup><a href="#src-14">14</a></sup>.
+  Dedicated capacity runs $1 per 1,000 at 100+ requests per second. And for agents that will never have
+  a human in the loop, there is x402 — HTTP-native payment per request in USDC on Base — plus prepaid
+  micro-credits through ZeroClick starting at fifty cents<sup><a href="#src-14">14</a></sup>.</p>
+  <p>The API itself is refreshingly small: <code>/v1/search</code> with real operators (quotes,
+  <code>site:</code>, <code>OR</code>, negation) in <code>pro</code> or <code>realtime</code> mode, and
+  <code>/v1/fetch</code>, which returns any page as markdown — from Keenable's own index, or live from
+  the source with <code>live=true</code><sup><a href="#src-13">13</a></sup>. SELECT adds structured queries
+  over web data for free accounts; experimental Time Machine endpoints hint at historical snapshots.
+  Results ship with a <code>to_context()</code> helper that formats numbered, citable blocks for a
+  model<sup><a href="#src-13">13</a></sup>.</p>
+
+  <h3>Strengths</h3>
+  <ul class="pros">
+    <li><strong>Friction zero.</strong> <code>npm install keenable</code> and you are searching — no signup, no key, no card. For hackathons, CI jobs, and truly autonomous agents, nothing else here comes close.<sup><a href="#src-13">13</a></sup></li>
+    <li><strong>The most generous free tier by far.</strong> 100,000 requests/month with a free key is 100× Tavily's allowance and, in request terms, dwarfs Exa's credit drip.<sup><a href="#src-14">14</a></sup></li>
+    <li><strong>Agent-native payments.</strong> x402 USDC per-request billing is the only credible machine-to-machine payment story here — agents can pay for their own search.<sup><a href="#src-14">14</a></sup></li>
+    <li><strong>Flat, honest pricing.</strong> $4/1k regardless of result count (up to 50) or mode; failed calls unbilled; a published error taxonomy with causes and fixes.<sup><a href="#src-13">13</a></sup><sup><a href="#src-14">14</a></sup></li>
+    <li><strong>Practices what it preaches.</strong> Docs ship as an llms.txt, an MCP server, and per-page markdown; there is a public status page and a plain-language data-privacy doc.<sup><a href="#src-13">13</a></sup></li>
+  </ul>
+
+  <h3>Weaknesses</h3>
+  <ul class="cons">
+    <li><strong>Unproven index depth.</strong> Running your own crawl is brutally expensive; freshness and long-tail coverage against Exa's and You.com's mature indexes is the open question buyers must test with their own queries.</li>
+    <li><strong>Thin product line.</strong> Search, fetch, SELECT. No answer endpoint, no deep research, no crawl/map, no monitors — you will pair it with something else for advanced workloads.</li>
+    <li><strong>Enterprise unknowns.</strong> No published SOC 2 / ZDR / HIPAA posture, no SSO story; custom pricing is "per organization" on request.<sup><a href="#src-14">14</a></sup></li>
+    <li><strong>Query logging by default.</strong> On keyless and default-policy traffic, Keenable stores queries and fetched URLs — fine for public data, a real consideration for anything sensitive.<sup><a href="#src-13">13</a></sup></li>
+    <li><strong>SDK/HTTP feature lag.</strong> The <code>live=true</code> fetch flag is HTTP-only so far — small, but a reminder of how young the platform is.<sup><a href="#src-13">13</a></sup></li>
+  </ul>
+
+  <h3>Opportunities</h3>
+  <ul>
+    <li>The x402/machine-payment niche is Keenable's to lose; if agent-to-agent commerce materializes, being first matters.</li>
+    <li>Bottom-up adoption: keyless SDKs spread through templates, examples, and agent skills faster than any sales team.</li>
+    <li>Price disruption: $1/1k dedicated capacity at scale undercuts everyone if quality holds.<sup><a href="#src-14">14</a></sup></li>
+  </ul>
+
+  <h3>Threats</h3>
+  <ul>
+    <li>Free-tier economics: 100k free requests per month per organization is a lot of crawl compute to give away without announced funding behind it.</li>
+    <li>Incumbents copy keyless: You.com already ships a keyless MCP profile; if Exa or Parallel follow, Keenable's wedge narrows to price.</li>
+    <li>Trust gap: enterprises will hesitate to route production traffic through a vendor with no published compliance posture, however elegant the SDK.</li>
+  </ul>
+
+  <p class="bestfor"><strong>Best for:</strong> prototypes, side projects, CI jobs, and autonomous agents
+  that need search before — or without — a human signing up for anything.</p>
+</section>
+
+<!-- ============ USE CASES ============ -->
+<section id="use-cases">
+  <h2><span class="no">08</span>Winners by use case</h2>
+  <p>There is no honest overall ranking — there are workloads. Here is who we'd pick today for each of
+  the six we see most, with the runner-up and the reasoning compressed to a sentence or two.</p>
+
+  <div class="verdict">
+    <h3>Building a coding agent or IDE tool</h3>
+    <p class="winner">Winner: Exa · Runner-up: You.com</p>
+    <p>Exa's code/docs index, 450ms-class Lite tier, and the Cursor case study make it the purpose-built
+    choice.<sup><a href="#src-3">3</a></sup> You.com is the runner-up for its keyless free MCP profile and
+    plugins covering nearly every agent harness.<sup><a href="#src-2">2</a></sup></p>
+  </div>
+
+  <div class="verdict">
+    <h3>Production RAG &amp; Q&amp;A chatbots</h3>
+    <p class="winner">Winner: You.com · Runner-up: Tavily</p>
+    <p>One flat $5/1k for up to 100 results, a $1/1k contents endpoint, and a cited Answer API at a
+    published p50 2.67s is the most complete RAG toolkit on one bill.<sup><a href="#src-1">1</a></sup>
+    Tavily's one-currency model is the simplest to budget at smaller scale.<sup><a href="#src-9">9</a></sup></p>
+  </div>
+
+  <div class="verdict">
+    <h3>Deep-research &amp; enrichment pipelines</h3>
+    <p class="winner">Winner: Parallel · Runner-up: Exa</p>
+    <p>Nine Task processors from $5 to $2,400 per 1k runs, failed runs unbilled, structured outputs with
+    citations — the most deliberate deep-research product.<sup><a href="#src-6">6</a></sup> Exa's Agent API is
+    a strong runner-up with cheaper top-end runs ($1.00 x-high).<sup><a href="#src-3">3</a></sup></p>
+  </div>
+
+  <div class="verdict">
+    <h3>Side projects, prototypes &amp; account-free agents</h3>
+    <p class="winner">Winner: Keenable · Runner-up: Exa</p>
+    <p>Keyless SDKs and 100k free requests a month mean your prototype may never cost anything.<sup><a href="#src-14">14</a></sup>
+    Exa's recurring $10 monthly credits are the best runner-up for hobby scale.<sup><a href="#src-3">3</a></sup></p>
+  </div>
+
+  <div class="verdict">
+    <h3>Site crawling &amp; bulk ingestion</h3>
+    <p class="winner">Winner: Tavily · Runner-up: Parallel</p>
+    <p>Tavily is the only one shipping Map and Crawl products, with failed pages unbilled.<sup><a href="#src-9">9</a></sup>
+    For URL lists you already have, Parallel's Extract at $1/1k URLs is a clean alternative.<sup><a href="#src-6">6</a></sup></p>
+  </div>
+
+  <div class="verdict">
+    <h3>Enterprise procurement &amp; compliance</h3>
+    <p class="winner">Winner: Exa · Runner-up: You.com</p>
+    <p>Exa publishes the full checklist — SOC 2 Type II, zero data retention, HIPAA, SSO/SCIM, custom
+    indexes and QPS.<sup><a href="#src-3">3</a></sup> You.com offers enterprise plans and the longest operating
+    history; Keenable and (post-acquisition) Tavily have more to prove here.</p>
+  </div>
+</section>
+
+<!-- ============ AGENT SCORECARD ============ -->
+<section id="agent-scorecard">
+  <h2><span class="no">09</span>The agent-readiness scorecard</h2>
+  <p>In 2026, a growing share of "developers" evaluating these APIs are themselves agents. Here is how
+  the five score on machine-first criteria — the same criteria this site tries to meet
+  (see <a href="/llms.txt">our own llms.txt</a>).</p>
+
+  <div class="tablewrap">
+  <table>
+    <caption>Table 2 — Agent-readiness, verified 2026-11-11</caption>
+    <thead>
+      <tr><th></th><th>You.com</th><th>Exa</th><th>Parallel</th><th>Tavily</th><th>Keenable</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>MCP server</strong></td><td>✓ + docs MCP</td><td>✓</td><td>✓</td><td>✓ + docs MCP</td><td>✓ + docs MCP</td></tr>
+      <tr><td><strong>Keyless first call</strong></td><td>✓ (MCP free profile)</td><td>✗</td><td>✗</td><td>✗</td><td><strong>✓ (all APIs)</strong></td></tr>
+      <tr><td><strong>llms.txt docs</strong></td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td><strong>Machine payments</strong></td><td>✗</td><td>✗</td><td>✗</td><td>✓ (x402 docs)</td><td><strong>✓ (x402 live)</strong></td></tr>
+      <tr><td><strong>Agent skills / plugins</strong></td><td><strong>✓ (broadest)</strong></td><td>✓</td><td>—</td><td>✓</td><td>✓ (AI SDK tool)</td></tr>
+      <tr><td><strong>Recurring free tier</strong></td><td>✓ credits</td><td><strong>✓ $10/mo</strong></td><td>—</td><td>✓ 1k credits/mo</td><td><strong>✓ 100k req/mo</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small muted">Sources: each vendor's docs/llms.txt — rows 1–5 in the
+  <a href="#sources">source list</a> per vendor. Tavily documents x402 machine payments; Keenable runs
+  them in production with per-request USDC pricing.<sup><a href="#src-10">10</a></sup><sup><a href="#src-14">14</a></sup></p>
+</section>
+
+<!-- ============ HONORABLE MENTIONS ============ -->
+<section id="honorable-mentions">
+  <h2><span class="no">10</span>Honorable mentions</h2>
+  <p>Five slots meant hard cuts. These are worth knowing, briefly:</p>
+  <ul>
+    <li><strong>Brave Search API</strong> — an independent index with a generous free tier and LLM-grounding endpoints; the credible sixth man, excluded only because Parallel's docs already treat it as the incumbent they migrate customers from.<sup><a href="#src-7">7</a></sup></li>
+    <li><strong>Serper / SerpAPI / DataForSEO</strong> — Google SERP APIs: cheap, fast, familiar — but they resell Google results rather than operate an AI-native index, with different terms-of-service trade-offs.</li>
+    <li><strong>Jina AI Reader</strong> — <code>r.jina.ai</code> remains the quick-and-free way to turn a URL into LLM-ready text; a utility more than a search platform.</li>
+    <li><strong>Firecrawl</strong> — open-source crawling/scraping for LLMs; overlaps Tavily's crawl lane more than the search lane.</li>
+    <li><strong>Perplexity Sonar API</strong> — a cited-answer API riding Perplexity's consumer brand; an Answer-API alternative more than a raw-results one.</li>
+  </ul>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="faq">
+  <h2><span class="no">11</span>FAQ</h2>
+
+  <details>
+    <summary>Which web search API is the best overall?</summary>
+    <p>There isn't one. Exa leads for coding agents and semantic search, You.com for production RAG,
+    Parallel for deep research, Keenable for zero-budget and keyless prototyping, and Tavily for
+    crawling and ingestion. Pick by workload — the <a href="#use-cases">use-case section</a> is the
+    honest version of this answer.</p>
+  </details>
+
+  <details>
+    <summary>What's the cheapest way to add web search to an agent?</summary>
+    <p>Keenable: no key at all gets you 1,000 requests/hour per IP, and a free key gets 100,000
+    requests/month.<sup><a href="#src-14">14</a></sup> Also free-ish: You.com's keyless MCP profile<sup><a href="#src-2">2</a></sup>,
+    Exa's $10 monthly credits<sup><a href="#src-3">3</a></sup>, and Tavily's 1,000 monthly credits<sup><a href="#src-9">9</a></sup>.</p>
+  </details>
+
+  <details>
+    <summary>Does it matter whether a vendor owns its index?</summary>
+    <p>Mostly yes. Owning the index (as all five here do to varying degrees) means control over
+    freshness, ranking, and coverage — and no dependency on Google or Bing's API terms. SERP-reselling
+    APIs can be cheaper for simple keyword lookups but inherit upstream risk and offer less control over
+    what an agent actually receives.</p>
+  </details>
+
+  <details>
+    <summary>How current is the pricing on this page?</summary>
+    <p>Every price was verified against the vendors' public documentation on November 11, 2026, and each
+    vendor section carries a "last verified" stamp. This market reprices quarterly — confirm on the
+    vendor's page before committing budget, and check our <a href="#changelog">changelog</a> for updates.</p>
+  </details>
+
+  <details>
+    <summary>Is this page biased?</summary>
+    <p>The author works at one of the five vendors — that's disclosed at the top, and it's why the
+    comparison exists (practitioners read these docs daily). The counterweights: every factual claim is
+    sourced, pricing is dated, every vendor including the author's employer gets an explicit weaknesses
+    list, winners are named per use case rather than overall, and corrections go in the public
+    <a href="#changelog">changelog</a>.</p>
+  </details>
+
+  <details>
+    <summary>Can my agent read this page?</summary>
+    <p>Yes — that's the point. <a href="/llms.txt">/llms.txt</a> has the summary and verdicts,
+    <a href="/llms-full.txt">/llms-full.txt</a> has the full text, and <a href="/index.md">/index.md</a>
+    is this page as Markdown. The HTML is semantic, script-free, and readable by any extractor.</p>
+  </details>
+
+  <details>
+    <summary>What about Brave, Serper, Jina, Firecrawl, or Perplexity Sonar?</summary>
+    <p>See <a href="#honorable-mentions">honorable mentions</a>. They're real options — we scoped this
+    page to the five APIs purpose-built as web search infrastructure for AI developers.</p>
+  </details>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section id="sources">
+  <h2><span class="no">12</span>Sources</h2>
+  <p class="small muted">All links retrieved November 11, 2026. Funding figures not drawn from a
+  vendor's own announcement are marked "reported" in the text and sourced to public records.</p>
+  <ol class="sources">
+    <li id="src-1"><a href="https://you.com/docs/choose-the-right-api">You.com Docs — Choose the Right API</a> (products, latency, pricing table).</li>
+    <li id="src-2"><a href="https://you.com/docs/llms.txt">You.com Docs — llms.txt</a> (MCP server, keyless <code>?profile=free</code>, agent-harness plugins).</li>
+    <li id="src-3"><a href="https://exa.ai/pricing">Exa — Pricing</a> (endpoint prices, free tier, QPS, enterprise controls, Cursor case study).</li>
+    <li id="src-4"><a href="https://docs.exa.ai/llms.txt">Exa Docs — llms.txt</a> (product surface, data indexes, Exa Connect providers).</li>
+    <li id="src-5"><a href="https://exa.ai/blog/announcing-series-b">Exa Blog — Series B announcement</a> ($85M led by Benchmark; ~$700M valuation as reported).</li>
+    <li id="src-6"><a href="https://docs.parallel.ai/getting-started/pricing">Parallel Docs — Pricing</a> (all API prices, processor tiers, billing policies).</li>
+    <li id="src-7"><a href="https://docs.parallel.ai/llms.txt">Parallel Docs — llms.txt</a> (product surface, v1beta→v1 migration, migration guides).</li>
+    <li id="src-8"><a href="https://docs.parallel.ai/search/evaluating-search">Parallel Docs — How to Eval Parallel Search</a> (evaluation methodology and pitfalls).</li>
+    <li id="src-9"><a href="https://docs.tavily.com/documentation/api-credits">Tavily Docs — Credits &amp; Pricing</a> (credit model, plan prices, per-endpoint costs).</li>
+    <li id="src-10"><a href="https://docs.tavily.com/llms.txt">Tavily Docs — llms.txt</a> (product surface, CLI, MCP, Nebius portfolio note, x402 docs).</li>
+    <li id="src-11"><a href="https://nebius.com/newsroom/nebius-announces-agreement-to-acquire-tavily-to-add-agentic-search-to-its-ai-cloud-platform">Nebius Newsroom — Agreement to acquire Tavily</a> (February 10, 2026).</li>
+    <li id="src-12"><a href="https://www.tavily.com/blog/tavily-is-joining-nebius">Tavily Blog — Tavily is Joining Nebius</a>.</li>
+    <li id="src-13"><a href="https://docs.keenable.ai/llms.txt">Keenable Docs — llms.txt</a> (keyless access, SDKs, operators, modes, data policy, MCP).</li>
+    <li id="src-14"><a href="https://docs.keenable.ai/pricing">Keenable Docs — Pricing</a> (free tiers, $4/1k, x402, dedicated capacity, billing rules).</li>
+    <li id="src-15"><a href="https://en.wikipedia.org/wiki/You.com">Wikipedia — You.com</a> (founders, founding year).</li>
+    <li id="src-16"><a href="https://www.crunchbase.com/organization/parallel-ai">Crunchbase — Parallel AI</a> (reported seed and Series A figures).</li>
+    <li id="src-17"><a href="https://www.crunchbase.com/organization/you-com">Crunchbase — You.com</a> (reported funding history).</li>
+    <li id="src-18"><a href="https://www.crunchbase.com/organization/tavily">Crunchbase — Tavily</a> (reported pre-acquisition funding).</li>
+  </ol>
+</section>
+
+<!-- ============ CHANGELOG ============ -->
+<section id="changelog" class="changelog">
+  <h2><span class="no">13</span>Changelog &amp; corrections</h2>
+  <p>Pricing in this market moves quarterly. Each vendor section carries its own "last verified" date;
+  material changes are logged here. Spot an error? Email
+  <a href="mailto:corrections@websearch.dev">corrections@websearch.dev</a> — sourced corrections are
+  applied within 48 hours and noted below.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Date</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td class="num">2026-11-11</td><td>Initial publication. All five vendor sections verified against public docs same-day.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>websearch.dev</strong> — an independent, long-form comparison of web search APIs for
+    developers and the agents reading on their behalf. Written by a search-API practitioner employed at
+    one of the vendors covered; see the disclosure at the top of the page.</p>
+    <p>No cookies, no analytics, no JavaScript. Hand-written HTML &amp; CSS.
+    Machine-readable: <a href="/llms.txt">llms.txt</a> · <a href="/llms-full.txt">llms-full.txt</a> · <a href="/index.md">index.md</a> ·
+    <a href="/sitemap.xml">sitemap</a> · <a href="/humans.txt">humans.txt</a></p>
+    <p>All trademarks belong to their owners. Prices are dated snapshots of public pages, not offers.
+    Corrections: <a href="mailto:corrections@websearch.dev">corrections@websearch.dev</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

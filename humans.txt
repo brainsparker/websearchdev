@@ -1,0 +1,10 @@
+/* TEAM */
+Site: websearch.dev
+Author: a search-API practitioner (employed at one of the vendors compared)
+Contact: corrections@websearch.dev
+
+/* SITE */
+Last update: 2026-11-11
+Standards: HTML5, CSS3, llms.txt (https://llmstxt.org)
+Software: none — hand-written HTML & CSS, no build step, no JavaScript
+Hosting: Cloudflare Pages
