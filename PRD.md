@@ -190,7 +190,7 @@ websearchdev/
 | Defamation / inaccurate competitor claims | Sources-only policy, dated claims, corrections section, legal-unfriendly adjectives banned |
 | Content goes stale (pricing moves fast) | "Last verified" per section; quarterly review task; changelog |
 | Vendors change products post-acquisition (Tavily/Nebius) | Tracked in changelog; acquisition covered as both opportunity & threat |
-| Hand-maintained mirrors drift from HTML | `llms-full.txt`/`index.md` generated or diff-checked in CI before deploy |
+| Hand-maintained mirrors drift from HTML | `scripts/check.py` compares the figures, dates, citations, and sources in `index.html`, `index.md`, `llms-full.txt`, and `llms.txt`; run it before pushing, or in CI via `docs/workflows/check.yml` |
 
 ---
 
@@ -227,5 +227,7 @@ websearchdev/
 - [x] robots.txt (explicit AI-crawler welcome), sitemap.xml, humans.txt
 - [x] assets/favicon.svg, assets/og.png (generated, 1200×630)
 - [x] _headers (Cloudflare Pages), README deploy guide, RESEARCH.md fact base
+- [x] scripts/check.py (mirror drift, dates, links, zero JS, page weight) + tests
+- [ ] Copy docs/workflows/check.yml to .github/workflows/ to run the check in CI (owner action)
 - [ ] corrections@websearch.dev email routing (owner action before launch)
 - [ ] DNS: point websearch.dev at Cloudflare Pages (owner action)

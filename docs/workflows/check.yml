@@ -1,0 +1,19 @@
+# Copy to .github/workflows/check.yml to run the site check in GitHub Actions.
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Site consistency (mirrors, facts, dates, links, no JS, page weight)
+        run: python3 scripts/check.py
+      - name: Tests for the checker
+        run: python3 -m unittest discover -s tests -v
