@@ -17,7 +17,8 @@ Hand-written HTML/CSS. No build step, no JavaScript, no trackers.
 | `sitemap.xml`, `robots.txt`, `humans.txt` | Crawler & human metadata |
 | `_headers` | Cloudflare Pages headers (markdown content types, caching) |
 | `assets/` | favicon.svg, og.png |
-| `PRD.md` | Product requirements doc |
+| `PRD.md` | Product requirements doc (v1 page) |
+| `TPRD.md` | Long-term technical PRD (proposal) |
 | `RESEARCH.md` | Sourced fact base behind the page (update this first) |
 
 ## Local preview
